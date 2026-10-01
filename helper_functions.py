@@ -113,3 +113,16 @@ def local_alignment(seq1, seq2, scoring_function):
 def scoring_function_simple(aa_i,aa_j):
     score = [-1, 1][aa_i == aa_j]
     return (score)
+
+from Bio.Align import substitution_matrices
+
+BLOSUM62 = substitution_matrices.load("BLOSUM62")
+GAP_PENALTY = -4  # at least as bad as BLOSUM62's worst mismatch
+
+# Convert to a plain dict once, for speed
+_blosum_dict = {(a, b): BLOSUM62[a][b] for a in BLOSUM62.alphabet for b in BLOSUM62.alphabet}
+
+def scoring_function_blosum62(aa_i, aa_j):
+    if aa_i == "-" or aa_j == "-":
+        return GAP_PENALTY
+    return _blosum_dict[(aa_i, aa_j)]
