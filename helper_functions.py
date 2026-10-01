@@ -41,7 +41,6 @@ def global_alignment(seq1, seq2, scoring_function):
     for j in range(1, m + 1):
         D[0][j] = D[0][j-1] + scoring_function("-", seq2[j-1])
 
-    # TODO: fill the rest of the table using the slide's formula
     for i in range(1, n + 1):
         for j in range(1, m + 1):
             D[i][j] = max(
@@ -50,7 +49,32 @@ def global_alignment(seq1, seq2, scoring_function):
                 D[i][j-1]   + scoring_function("-", seq2[j-1]),
             )
 
-    return D  # temporary, just so we can look at it
+    # Traceback from bottom-right
+    i, j = n, m
+    aligned1 = ""
+    aligned2 = ""
+
+    while i > 0 or j > 0:
+        # Diagonal: letter matched/mismatched with letter
+        if i > 0 and j > 0 and D[i][j] == D[i-1][j-1] + scoring_function(seq1[i-1], seq2[j-1]):
+            aligned1 = seq1[i-1] + aligned1
+            aligned2 = seq2[j-1] + aligned2
+            i -= 1
+            j -= 1
+
+        # Up: seq1 letter aligned to a gap
+        elif i > 0 and D[i][j] == D[i-1][j] + scoring_function(seq1[i-1], "-"):
+            aligned1 = seq1[i-1] + aligned1
+            aligned2 = "-" + aligned2
+            i -= 1
+
+        # Left: gap aligned to seq2 letter
+        else:
+            aligned1 = "-" + aligned1
+            aligned2 = seq2[j-1] + aligned2
+            j -= 1
+
+    return aligned1, aligned2, float(D[n][m])
 
 def local_alignment(seq1, seq2, scoring_function):
     """Local sequence alignment using the Smith-Waterman algorithm.
