@@ -1,0 +1,42 @@
+{
+  "ORF-1": {
+    "virus": "Bat-CoV RaTG13",
+    "gene": "orf1ab polyprotein",
+    "score": 2553.0,
+    "identity": 100.0,
+    "aligned_length": 491,
+    "orf_length": 495
+  },
+  "ORF-2": {
+    "virus": "Bat-CoV RaTG13",
+    "gene": "membrane protein",
+    "score": 678.0,
+    "identity": 100.0,
+    "aligned_length": 132,
+    "orf_length": 132
+  },
+  "ORF-3": {
+    "virus": "Bat-CoV RaTG13",
+    "gene": "spike glycoprotein",
+    "score": 2999.0,
+    "identity": 99.7,
+    "aligned_length": 577,
+    "orf_length": 577
+  },
+  "ORF-4": {
+    "virus": "Human-SARS",
+    "gene": "ORF1ab polyprotein",
+    "score": 61.0,
+    "identity": 20.2,
+    "aligned_length": 84,
+    "orf_length": 81
+  },
+  "ORF-5": {
+    "virus": "Bat-CoV RaTG13",
+    "gene": "orf1ab polyprotein",
+    "score": 7569.0,
+    "identity": 99.7,
+    "aligned_length": 1445,
+    "orf_length": 1449
+  }
+}
