@@ -1,0 +1,82 @@
+{
+  "Human-SARS": {
+    "score": 5246.0,
+    "identity": 76.4
+  },
+  "Human-MERS": {
+    "score": 1739.0,
+    "identity": 34.4
+  },
+  "Human-HCoV-OC43": {
+    "score": 1617.0,
+    "identity": 32.7
+  },
+  "Human-HCoV-229E": {
+    "score": 1101.0,
+    "identity": 29.9
+  },
+  "Human-HCoV-NL63": {
+    "score": 1158.0,
+    "identity": 29.7
+  },
+  "Human-HCoV-HKU1": {
+    "score": 1544.0,
+    "identity": 32.0
+  },
+  "Bat-CoV MOP1": {
+    "score": 1087.0,
+    "identity": 29.4
+  },
+  "Bat-CoV HKU8": {
+    "score": 1153.0,
+    "identity": 29.4
+  },
+  "Bat-CoV HKU2": {
+    "score": 1091.0,
+    "identity": 28.7
+  },
+  "Bat-CoV HKU5": {
+    "score": 1797.0,
+    "identity": 35.1
+  },
+  "Bat-CoV RaTG13": {
+    "score": 6539.0,
+    "identity": 97.4
+  },
+  "Bat-CoV-ENT": {
+    "score": 1629.0,
+    "identity": 32.5
+  },
+  "Hedgehog-CoV 2012-174/GER/2012": {
+    "score": 1694.0,
+    "identity": 33.1
+  },
+  "Pangolin-CoV MP789": {
+    "score": 6085.0,
+    "identity": 90.1
+  },
+  "Rabbit-CoV HKU14": {
+    "score": 1653.0,
+    "identity": 32.6
+  },
+  "Duck-CoV isolate DK/GD/27/2014": {
+    "score": 1124.0,
+    "identity": 30.8
+  },
+  "Feline infectious peritonitis virus": {
+    "score": 1150.0,
+    "identity": 29.2
+  },
+  "Giraffe-CoV US/OH3/2003": {
+    "score": 1623.0,
+    "identity": 31.8
+  },
+  "Murine-CoV MHV/BHKR_lab/USA/icA59_L94P/2012": {
+    "score": 1719.0,
+    "identity": 34.1
+  },
+  "Equine-CoV Obihiro12-2": {
+    "score": 1575.0,
+    "identity": 32.0
+  }
+}
