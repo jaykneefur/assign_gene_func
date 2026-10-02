@@ -106,7 +106,49 @@ def local_alignment(seq1, seq2, scoring_function):
     Other alignments are not possible.
 
     """
-    raise NotImplementedError()
+    n, m = len(seq1), len(seq2)
+
+    # Score table: (n+1) rows, (m+1) columns, all zeros to start
+    D = [[0.0] * (m + 1) for _ in range(n + 1)]
+
+    best_score, best_i, best_j = 0, 0, 0
+    for i in range(1, n + 1):
+        for j in range(1, m + 1):
+            D[i][j] = max(
+                D[i-1][j-1] + scoring_function(seq1[i-1], seq2[j-1]),
+                D[i-1][j]   + scoring_function(seq1[i-1], "-"),
+                D[i][j-1]   + scoring_function("-", seq2[j-1]),
+                0
+            )
+            if D[i][j] > best_score:
+                best_score, best_i, best_j = D[i][j], i, j
+
+    # # Traceback from the highest-scoring cell.
+    i, j = best_i, best_j    
+    aligned1 = ""
+    aligned2 = ""
+
+    while i > 0 and j > 0 and D[i][j] > 0:
+        # Diagonal: letter matched/mismatched with letter
+        if i > 0 and j > 0 and D[i][j] == D[i-1][j-1] + scoring_function(seq1[i-1], seq2[j-1]):
+            aligned1 = seq1[i-1] + aligned1
+            aligned2 = seq2[j-1] + aligned2
+            i -= 1
+            j -= 1
+
+        # Up: seq1 letter aligned to a gap
+        elif i > 0 and D[i][j] == D[i-1][j] + scoring_function(seq1[i-1], "-"):
+            aligned1 = seq1[i-1] + aligned1
+            aligned2 = "-" + aligned2
+            i -= 1
+
+        # Left: gap aligned to seq2 letter
+        else:
+            aligned1 = "-" + aligned1
+            aligned2 = seq2[j-1] + aligned2
+            j -= 1
+
+    return aligned1, aligned2, float(best_score)
 
 
 ## This is an example scoring function, you should implement a version which uses a scoring matrix 
